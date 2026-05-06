@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "type": "module",
   "bin": {
-    "krusch-sequential-mcp": "./build/index.js"
+    "krusch-sequential-mcp": "build/index.js"
   },
   "scripts": {
     "build": "tsc",
