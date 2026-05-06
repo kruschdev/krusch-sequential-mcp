@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/krusch-sequential-mcp"><img src="https://img.shields.io/github/package-json/v/kruschdev/krusch-sequential-mcp.svg?style=flat-square" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/krusch-sequential-mcp"><img src="https://img.shields.io/npm/v/krusch-sequential-mcp.svg?style=flat-square" alt="NPM Version"></a>
   <a href="https://github.com/kruschdev/krusch-sequential-mcp/blob/main/LICENSE"><img src="https://img.shields.io/github/license/kruschdev/krusch-sequential-mcp.svg?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-blue.svg?style=flat-square" alt="Node Version">
 </p>
@@ -25,6 +25,7 @@ The standard `sequential-thinking` MCP provides a great tool for chain-of-though
 - **💾 DBOS PostgreSQL Persistence:** Synchronously persists every thought, branch, and revision into a `dbos_thoughts` table, creating an auditable DAG of reasoning.
 - **🛑 Deterministic State Reliability:** Halts poisoned thought execution, forcing agents to re-evaluate their reasoning path.
 - **🔌 Drop-In Replacement:** Fully compatible with the standard `sequential-thinking` interface while supporting the new `groundingContext` parameter.
+- **📦 Zero External Dependencies:** The plausibility evaluator is fully self-contained — no external toolkit required.
 
 ---
 
@@ -87,8 +88,16 @@ To engage the plausibility gate, include the `groundingContext` parameter in you
 
 ## ⚙️ Environment Variables
 
-- `DATABASE_URL` (optional): PostgreSQL connection string. Defaults to `postgres://openclaw:openclaw_password@kruschserv:5434/kruschdb`.
-- `OLLAMA_URL` (optional): URL to the Ollama service for plausibility checks. Defaults to `http://localhost:11434`.
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `DATABASE_URL` | No | *(none — persistence disabled)* | PostgreSQL connection string (e.g., `postgres://user:pass@localhost:5432/mydb`). If not set, the server runs in memory-only mode. |
+| `OLLAMA_URL` | No | `http://localhost:11434` | Base URL to the Ollama service for plausibility checks. |
+| `PLAUSIBILITY_MODEL` | No | `qwen2.5-coder:1.5b` | Ollama model used for plausibility screening. Should be a small, fast model. |
+
+Copy `.env.example` for a quick start:
+```bash
+cp .env.example .env
+```
 
 ---
 

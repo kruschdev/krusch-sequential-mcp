@@ -1,19 +1,40 @@
-# Session State: krusch-sequential-mcp
+# GEMINI_INFLIGHT — krusch-sequential-mcp
 
-## Active Goal
-Built and tested the krusch-sequential-mcp fork with native Semantic Plausibility Gating and DBOS PostgreSQL persistence. Selected the name `krusch-sequential-mcp` for the upcoming public open-source repository release.
+> Last updated: 2026-05-05
 
-## Fragile Files / Context
-- `projects/krusch-sequential-mcp/src/index.ts` (Core MCP logic with DBOS PG pool and evaluatePlausibility interceptor)
-- `lib/evaluator.js` (The underlying Plausibility Gate logic inside @krusch/toolkit)
-- `projects/krusch-sequential-mcp/package.json` (Includes local file symlinks and pg dependencies)
+## Active Environment & Nodes
+- `kruschserv` / local node environment for `krusch-sequential-mcp`
 
-## Recent Progress
-1. [x] Verified Git repository for `krusch-sequential-mcp` is initialized and clean.
-2. [x] Drafted a professional `README.md` highlighting Semantic Plausibility Gating and DBOS persistence with Mermaid diagrams and repository badges.
-3. [x] Configured the NPM publishing pipeline (`.github/workflows/publish.yml`) for the NPM Registry.
+## Currently Modifying
+- N/A — audit remediation complete. All 13 findings resolved.
+
+## Fragile / Don't Touch
+- `src/index.ts` — Fully self-contained MCP server with inlined plausibility evaluator. No external toolkit dependency.
+
+## Active Background Processes
+- None
+
+## Task-Specific Constraints
+- Must maintain DBOS persistence and Semantic Plausibility Gating.
+- `@krusch/toolkit` was eliminated — evaluator is inlined. Do NOT re-add this dependency.
+
+## Last Session
+- Completed full codebase audit identifying 13 issues (4 critical broken template literals, unpublished toolkit dep, hardcoded credentials, missing files).
+- Fixed all issues: inlined evaluatePlausibility, scrubbed homelab creds, created LICENSE/.npmignore/.env.example, added graceful shutdown, dynamic version, fixed test_client.js newline bug.
+- Build verified clean — zero credential leaks, zero interpolation bugs.
+
+## Open Questions
+- None.
+
+## Discovered Issues
+- None remaining.
+
+## Visual Verification Status
+- N/A
 
 ## Next Steps
-1. Execute final tests to ensure the standalone extraction and package dependencies are fully functioning.
-2. Commit and push the `krusch-sequential-mcp` repository to the public GitHub remote.
-3. Proceed with project closing and semantic memory synchronization workflows.
+- [ ] Set up git remote: `git remote add origin https://github.com/kruschdev/krusch-sequential-mcp.git`
+- [ ] Run clean `npm ci` to verify dependency resolution without `@krusch/toolkit`
+- [ ] Run end-to-end test with live Ollama and DATABASE_URL set
+- [ ] `git add -A && git commit` all audit remediation changes
+- [ ] Push to GitHub

@@ -49,7 +49,7 @@ async function runTest() {
   };
 
   console.log("Sending poisoned thought to MCP...");
-  server.stdin.write(JSON.stringify(request) + "\\n");
+  server.stdin.write(JSON.stringify(request) + "\n");
 }
 
 runTest().catch(console.error);

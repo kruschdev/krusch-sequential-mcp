@@ -11,8 +11,10 @@
     "build": "tsc",
     "start": "node build/index.js"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "@krusch/toolkit": "latest",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "pg": "^8.20.0"
   },
