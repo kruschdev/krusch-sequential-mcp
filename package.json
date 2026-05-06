@@ -1,0 +1,42 @@
+{
+  "name": "krusch-sequential-mcp",
+  "version": "1.0.0",
+  "description": "Fork of sequential-thinking MCP server with native Semantic Plausibility Gating",
+  "main": "build/index.js",
+  "type": "module",
+  "bin": {
+    "krusch-sequential-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js"
+  },
+  "dependencies": {
+    "@krusch/toolkit": "latest",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.20.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "sequential-thinking",
+    "dbos",
+    "agentic",
+    "plausibility",
+    "llm"
+  ],
+  "author": "kruschdev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kruschdev/krusch-sequential-mcp.git"
+  },
+  "homepage": "https://github.com/kruschdev/krusch-sequential-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/kruschdev/krusch-sequential-mcp/issues"
+  }
+}
